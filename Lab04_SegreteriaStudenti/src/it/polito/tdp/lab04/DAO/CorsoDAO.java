@@ -38,6 +38,9 @@ public class CorsoDAO {
 				
 				corsi.add(c);
 			}
+			
+			st.close();
+			conn.close();
 			return corsi;
 
 		} catch (SQLException e) {
@@ -83,6 +86,8 @@ public class CorsoDAO {
 				
 				studenti.add(s);
 			}
+			st.close();
+			conn.close();
 			return studenti;
 
 		} catch (SQLException e) {
@@ -110,10 +115,16 @@ public class CorsoDAO {
 			st.setString(2, corso.getCodice());
 			
 			ResultSet rs = st.executeQuery();
+			
 
+			
 			while (rs.next()) {
+				st.close();
+				conn.close();
 				return true; 
 			}
+			st.close();
+			conn.close();
 			return false;
 
 		} catch (SQLException e) {
@@ -141,6 +152,9 @@ public class CorsoDAO {
 			int result = st.executeUpdate() ; 
 						
 			//System.out.println(result);
+			
+			st.close();
+			conn.close();
 			
 			if (result == 1)
 				return true;

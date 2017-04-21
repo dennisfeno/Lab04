@@ -44,6 +44,9 @@ public class StudenteDAO {
 			}
 
 			
+			st.close();
+			conn.close();
+			
 			if (s != null ) return s ;
 			else return null ;
 
@@ -84,6 +87,9 @@ public class StudenteDAO {
 				corsi.add(c);
 			}
 
+			st.close();
+			conn.close();
+			
 			return corsi;
 
 		} catch (SQLException e) {
